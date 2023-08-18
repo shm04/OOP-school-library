@@ -7,6 +7,7 @@ end
 class Person < Nameable
   def initialize(name)
     @name = name
+    super()
   end
 
   def correct_name
@@ -17,6 +18,7 @@ end
 class Decorator < Nameable
   def initialize(nameable)
     @nameable = nameable
+    super()
   end
 
   def correct_name
