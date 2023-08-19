@@ -13,14 +13,14 @@ class Main
   def run
     loop do
       puts "\nWelcome to the Library Management System!"
-      puts "Select an option:"
-      puts "1. List all books"
-      puts "2. List all people"
-      puts "3. Create a person"
-      puts "4. Create a book"
-      puts "5. Create a rental"
-      puts "6. List all rentals for a person by ID"
-      puts "7. Quit"
+      puts 'Select an option:'
+      puts '1. List all books'
+      puts '2. List all people'
+      puts '3. Create a person'
+      puts '4. Create a book'
+      puts '5. Create a rental'
+      puts '6. List all rentals for a person by ID'
+      puts '7. Quit'
 
       choice = gets.chomp.to_i
 
@@ -38,10 +38,10 @@ class Main
       when 6
         list_rentals_for_person
       when 7
-        puts "Goodbye!"
+        puts 'Goodbye!'
         break
       else
-        puts "Invalid choice. Please select a valid option."
+        puts 'Invalid choice. Please select a valid option.'
       end
     end
   end
@@ -62,8 +62,8 @@ class Main
 
   def create_person
     puts "\nCreate a person:"
-    puts "1. Create a Student"
-    puts "2. Create a Teacher"
+    puts '1. Create a Student'
+    puts '2. Create a Teacher'
     choice = gets.chomp.to_i
 
     case choice
@@ -72,7 +72,7 @@ class Main
     when 2
       create_teacher
     else
-      puts "Invalid choice."
+      puts 'Invalid choice.'
     end
   end
 
@@ -81,7 +81,7 @@ class Main
     name = gets.chomp
     puts "Enter student's age:"
     age = gets.chomp.to_i
-    puts "Does the student have parent permission? (yes/no)"
+    puts 'Does the student have parent permission? (yes/no)'
     parent_permission = gets.chomp.downcase == 'yes'
 
     student = Student.new(name, age, parent_permission)
@@ -103,9 +103,9 @@ class Main
   end
 
   def create_book
-    puts "Enter book title:"
+    puts 'Enter book title:'
     title = gets.chomp
-    puts "Enter book author:"
+    puts 'Enter book author:'
     author = gets.chomp
 
     book = Book.new(title, author)
@@ -114,7 +114,7 @@ class Main
   end
 
   def create_rental
-    puts "Choose a book by entering its number:"
+    puts 'Choose a book by entering its number:'
     list_books
     book_index = gets.chomp.to_i - 1
     book = @books[book_index]
@@ -125,13 +125,13 @@ class Main
     person = @people.find { |p| p.id == person_id }
 
     if book && person
-      puts "Enter rental date (YYYY-MM-DD):"
+      puts 'Enter rental date (YYYY-MM-DD):'
       date = gets.chomp
       rental = book.add_rental(person, date)
       @rentals << rental
       puts "#{book.title} has been rented by #{person.name} on #{date}."
     else
-      puts "Invalid book or person ID."
+      puts 'Invalid book or person ID.'
     end
   end
 
@@ -147,7 +147,7 @@ class Main
         puts "#{rental.book.title} (Rented on #{rental.date})"
       end
     else
-      puts "Invalid person ID."
+      puts 'Invalid person ID.'
     end
   end
 end
