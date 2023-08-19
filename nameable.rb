@@ -7,7 +7,6 @@ end
 class Person < Nameable
   def initialize(name)
     @name = name
-    super()
   end
 
   def correct_name
@@ -18,7 +17,6 @@ end
 class Decorator < Nameable
   def initialize(nameable)
     @nameable = nameable
-    super()
   end
 
   def correct_name
@@ -40,7 +38,7 @@ class TrimmerDecorator < Decorator
 end
 
 person = Person.new('maximilianus')
-person.correct_name
+puts person.correct_name
 capitalized_person = CapitalizeDecorator.new(person)
 puts capitalized_person.correct_name
 capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)

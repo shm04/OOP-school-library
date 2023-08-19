@@ -1,11 +1,16 @@
 require_relative 'person'
 
 class Teacher < Person
-  attr_accessor :specialization
+  attr_accessor :specialization, :rentals
 
-  def initialize(id, age, specialization, name: 'Unknown')
-    super(id, age, name: name)
+  def initialize(name, age, specialization)
+    super(name, age)
     @specialization = specialization
+    @rentals = []
+  end
+
+  def add_rental(rental)
+    @rentals << rental
   end
 
   def can_use_services?
