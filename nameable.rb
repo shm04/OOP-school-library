@@ -6,6 +6,7 @@ end
 
 class Person < Nameable
   def initialize(name)
+    super()
     @name = name
   end
 
@@ -16,6 +17,7 @@ end
 
 class Decorator < Nameable
   def initialize(nameable)
+    super()
     @nameable = nameable
   end
 
